@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Click <a href="{% url 'add-member' %}">here</a> to add member.</p>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+<!--                      <th>#</th>-->
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Vital Status</th>
+                        <th>Relationship</th>
+                        <th>Date of Birth</th>
+                        <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+
+                  {% for member in account.user.members %}
+                    <tr>
+<!--                      <th scope="row">1</th>-->
+                        <td>{{member.first_name}}</td>
+                        <td>{{member.last_name}}</td>
+                        <td>{{member.vital_status}}</td>
+                        <td>{{member.relationship}}</td>
+                        <td>{{member.dob}}</td>
+                        <td>
+
+                            <a href="{% url 'members-detail' member.id %}" class="btn btn-w-sm btn-outline btn-primary">Update</a>
+                            <a href="{% url 'members-delete' member.id %}" class="btn btn-w-sm btn-outline btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                  {% endfor %}
+
+
+                  </tbody>
+                </table>
+
+
+
+
+{% endblock %}

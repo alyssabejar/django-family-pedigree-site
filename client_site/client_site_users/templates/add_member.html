@@ -1,0 +1,47 @@
+{% extends "html_base.html" %}
+{% block content %}
+
+<div class="row min-h-fullscreen center-vh p-20 m-0">
+  <div class="col-12">
+        <div class="card card-shadowed px-50 py-30 w-400px mx-auto" style="max-width: 100%">
+        <form method="POST" action="{% url 'add-member' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input class="form-control" type="text" id="first_name" name="first_name" placeholder="first name..." required />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input class="form-control" type="text" id="last_name" name="last_name" placeholder="last name..." required />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Vital Status</label>
+                <input class="form-control" type="text" id="vital_status" name="vital_status" placeholder="Living/Decease" required />
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Relationship</label>
+                <input class="form-control" type="text" id="relationship" name="relationship" placeholder="Relationship" required />
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input class="form-control" type="date" id="dob" name="dob" placeholder="Family member's date of birth..." required />
+            </div>
+
+
+            {% if error_message %}
+            <p class="text-danger">{{error_message}}</p>
+            {% endif %}
+            <button class="btn btn-bold btn-block btn-primary" type="submit">Add Member</button>
+            <a class="btn btn-bold btn-block  btn-secondary" href="{% url 'home' %}">Go back to Home</a>
+        </form>
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>
+
+{% endblock %}

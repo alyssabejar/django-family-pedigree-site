@@ -1,0 +1,39 @@
+{% extends "html_base.html" %}
+{% block content %}
+    <br><br>
+      <div class="col-12">
+        <div class="card card-shadowed px-50 py-30 w-400px mx-auto" style="max-width: 100%">
+          <h5 class="text-uppercase">Update your account details</h5>
+          <br>
+
+          <form method="POST" class="form-type-material">
+              {% csrf_token %}
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="email" name="email" value="{{ accounts.user.email }}" >
+              <label for="email">Email address</label>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input class="form-control" type="text" id="first_name" name="first_name" value="{{ accounts.user.first_name }}"  />
+            </div>
+
+            <div class="form-group">
+              <input class="form-control" type="text" id="last_name" name="last_name" value="{{ accounts.user.last_name }}"  />
+              <label for="last_name">Last name</label>
+            </div>
+
+            <label>Date of Birth</label>
+            <div class="form-group">
+                <input class="form-control" type="date" id="dob" name="dob" value="{{ accounts.dob }}"  />
+            </div>
+
+            <br>
+            <button class="btn btn-bold btn-block btn-primary" type="submit">Update</button>
+            <a class="btn btn-bold btn-block  btn-secondary" href="{% url 'home' %}">Go back to Home</a>
+          </form>
+        </div>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "html_base.html" %}
+{% block content %}
+{% load static %}
+
+    <div class="row min-h-fullscreen center-vh p-20 m-0">
+      <div class="col-12">
+        <div class="card card-shadowed px-50 py-30 w-400px mx-auto" style="max-width: 100%">
+          <h4>Login</h4>
+          <p><small>Sign into your account</small></p>
+          <br>
+
+            {% if error_message %}
+            <p class="text-danger">{{error_message}}</p>
+            {% endif %}
+
+          <form class="form-type-material" method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control" id="username" name="username" value="{{saved_username}}" required>
+              <label for="username">Username</label>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" id="password" name="password" required>
+              <label for="password">Password</label>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
+            </div>
+          </form>
+
+
+          <hr class="w-30px">
+
+          <p class="text-center text-muted fs-13 mt-20">Don't have an account? <a class="text-primary fw-500" href="{% url 'sign-up' %}">Sign up</a></p>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

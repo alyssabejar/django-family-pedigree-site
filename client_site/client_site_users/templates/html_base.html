@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Exercise - Blog Site</title>
+</head>
+    <!-- Styles -->
+    <link href="{% static 'assets/css/core.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'assets/css/app.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.min.css' %}" rel="stylesheet">
+
+<body>
+
+
+       <!-- Main container -->
+    <main class="main-container">
+
+
+
+
+
+      <div class="main-content">
+
+            {% block content %}
+            {% endblock %}
+
+      </div><!--/.main-content -->
+
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="text-center text-md-left">Copyright © 2021 ThinkDWM</a>. All rights reserved.</p>
+          </div>
+
+        </div>
+      </footer>
+      <!-- END Footer -->
+
+    </main>
+    <!-- END Main container -->
+
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/core.min.js' %}"></script>
+    <script src="{% static 'assets/js/app.min.js' %}"></script>
+    <script src="{% static 'assets/js/script.min.js' %}"></script>
+
+
+</body>
+</html>

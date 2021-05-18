@@ -1,0 +1,27 @@
+{% extends "html_base.html" %}
+{% block content %}
+
+<div class="row min-h-fullscreen center-vh p-20 m-0">
+  <div class="col-12">
+        <div class="card card-shadowed px-50 py-30 w-400px mx-auto" style="max-width: 100%">
+        <form method="POST" >
+            {% csrf_token %}
+
+            {% if error_message %}
+            <p class="text-danger">{{error_message}}</p>
+            {% endif %}
+              <fieldset class="form-group">Are you sure you want to delete {{ members.first_name }} {{ members.last_name }} as a family member <br> </fieldset>
+            <hr>
+            <div class="form-group">
+              <button class="btn-danger btn-bold btn-block btn-primary" type="submit" href="{% url 'home' %"}> Delete</button>
+            </div>
+
+
+        </form>
+    </div>
+
+    <div class="col"></div>
+  </div>
+</div>
+
+{% endblock %}

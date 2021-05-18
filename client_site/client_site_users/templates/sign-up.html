@@ -1,0 +1,63 @@
+{% extends "html_base.html" %}
+{% block content %}
+
+    <div class="row min-h-fullscreen center-vh p-20 m-0">
+      <div class="col-12">
+        <div class="card card-shadowed px-50 py-30 w-400px mx-auto" style="max-width: 100%">
+          <h5 class="text-uppercase">Create an account</h5>
+          <br>
+
+          <form method="POST" action="{% url 'sign-up' %}" class="form-type-material">
+              {% csrf_token %}
+            <div class="form-group">
+              <input type="text" class="form-control" id="username" name="username" value="{{cached_form.username}}" required>
+              <label for="username">Username</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="email" name="email" value="{{cached_form.email}}" required >
+              <label for="email">Email address</label>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" id="password" name="password1" required>
+              <label for="password">Password</label>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control" id="password2" name="password2" required>
+              <label for="password2">Password (confirm)</label>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input class="form-control" type="text" id="first_name" name="first_name" value="{{cached_form.first_name}}" required />
+            </div>
+
+            <div class="form-group">
+              <input class="form-control" type="text" id="last_name" name="last_name" value="{{cached_form.last_name}}" required />
+              <label for="last_name">Last name</label>
+            </div>
+
+            <label>Date of Birth</label>
+            <div class="form-group">
+                <input class="form-control" type="date" id="dob" name="dob" placeholder="Your date of birth..." value="{{cached_form.dob}}" required />
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="text" id="vital_status" name="vital_status" value="Living"   hidden  />
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="text" id="relationship" name="relationship" value="not applicable" hidden  />
+            </div>
+
+            <br>
+            <button class="btn btn-bold btn-block btn-primary" type="submit">Register</button>
+          </form>
+        </div>
+        <p class="text-center text-muted fs-13 mt-20">Already have an account? <a class="text-primary fw-500" href="{% url 'login' %}">Sign in</a></p>
+      </div>
+    </div>
+
+{% endblock %}
